@@ -170,20 +170,36 @@
     margin: 0 auto;
     padding: 1em;
     max-width: 1200px;
-    text-align: center;
 }
 
 .az-content-wrap section.content-current {
     display: block;
 }
 
+.az-content-wrap section az-title {
+    font-size: 5vw;
+}
+
+.az-content-wrap section az-title img {
+    height: 6.5vw;
+    margin: auto;
+    vertical-align: text-bottom;
+}
+
 .az-content-wrap section p {
+    /*
     margin: 0;
     padding: 0.75em 0;
-    color: rgba(40, 44, 42, 0.05);
-    font-weight: 900;
-    font-size: 4em;
+        color: rgba(40, 44, 42, 0.05);
+        font-size: 4em;
     line-height: 1;
+*/
+}
+
+.az-content-wrap section az-time {
+    display: block;
+    font-size: 3vw;
+    text-align: right;
 }
 
 

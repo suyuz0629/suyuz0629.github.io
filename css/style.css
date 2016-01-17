@@ -291,12 +291,14 @@ a:focus {
     width: 100%;
     font-weight: 300;
     font-size: 1.25em;
+    /*
     -webkit-transform: translateY(-120px);
     transform: translateY(-120px);
+*/
 }
 
 .az-tabs.modify nav {
-    border-bottom: 70px solid white;
+    /*    border-bottom: 70px solid white;*/
 }
 
 .az-fadeout.modify .az-content > div {
