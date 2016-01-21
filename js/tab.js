@@ -34,7 +34,6 @@
     };
 
     CBPFWTabs.prototype._init = function () {
-        console.log(this);
         // tabs elems
         this.tabs = [].slice.call(this.el.querySelectorAll('nav > ul > li'));
         // content items
@@ -58,7 +57,6 @@
     };
 
     CBPFWTabs.prototype._show = function (idx) {
-        console.log("click");
         if (this.current >= 0) {
             this.tabs[this.current].className = this.items[this.current].className = '';
         }

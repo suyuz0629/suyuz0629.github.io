@@ -53,12 +53,12 @@
         return ((rv > -1) ? rv : undef);
     }());
 
-
-    // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
-    // left: 37, up: 38, right: 39, down: 40,
-    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-    var keys = [32, 37, 38, 39, 40],
-        wheelIter = 0;
+    var keys = {
+        37: 1,
+        38: 1,
+        39: 1,
+        40: 1
+    };
 
     function preventDefault(e) {
         e = e || window.event;
@@ -76,47 +76,71 @@
         }
     }
 
-    function touchmove(e) {
-        preventDefault(e);
-    }
-
-    function wheel(e) {
-        // for IE
-        //if( ie ) {
-        //preventDefault(e);
-        //}
-    }
-
     function disable_scroll() {
-        window.onmousewheel = document.onmousewheel = wheel;
-        document.onkeydown = keydown;
-        document.body.ontouchmove = touchmove;
+        if (window.addEventListener) // older FF
+            window.addEventListener('DOMMouseScroll', preventDefault, false);
+        window.onwheel = preventDefault; // modern standard
+        window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+        window.ontouchmove = preventDefault; // mobile
+        document.onkeydown = preventDefaultForScrollKeys;
+    }
+
+    function preventDefaultForScrollKeys(e) {
+        if (keys[e.keyCode]) {
+            preventDefault(e);
+            return false;
+        }
     }
 
     function enable_scroll() {
-        window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+        if (window.removeEventListener)
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.onmousewheel = document.onmousewheel = null;
+        window.onwheel = null;
+        window.ontouchmove = null;
+        document.onkeydown = null;
     }
 
     var docElem = window.document.documentElement,
-        scrollVal,
-        isRevealed,
-        noscroll,
-        isAnimating,
+        scrollVal = 0,
+        isRevealed = false,
+        noscroll = true,
+        isAnimating = false,
         container = document.getElementById('az-container'),
         tabs = document.getElementById('az-tabs');
-    console.log(tabs);
 
     function scrollY() {
         return window.pageYOffset || docElem.scrollTop;
     }
 
+    function findPos(obj) {
+        var curtop = 0;
+        if (obj.offsetParent) {
+            do {
+                curtop += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+            return [curtop];
+        }
+    }
+
+    var first = true;
+    var second = true;
+
     function scrollPage() {
         scrollVal = scrollY();
 
+        if (first) {
+            first = false;
+            second = true;
+        } else if (second) {
+            if (window.innerWidth > 1000) {
+                window.scrollTo(0, findPos(document.getElementById("az-name")));
+            }
+            second = false;
+        }
         if (noscroll && !ie) {
             if (scrollVal < 0) return false;
             // keep it that way
-            window.scrollTo(0, 0);
         }
 
         if (classie.has(container, 'notrans')) {
@@ -129,47 +153,41 @@
         }
 
         if (scrollVal <= 0 && isRevealed) {
-            toggle(0);
+            toggle(0, scrollVal);
         } else if (scrollVal > 0 && !isRevealed) {
-            toggle(1);
+            toggle(1, scrollVal);
         }
+        scrollVal = 0;
     }
 
-    function toggle(reveal) {
+    function toggle(reveal, value) {
         isAnimating = true;
-
+        if (window.innerWidth > 1000) {
+            disable_scroll();
+        }
         if (reveal) {
             classie.add(container, 'modify');
             classie.add(tabs, 'modify');
         } else {
             noscroll = true;
-            disable_scroll();
             classie.remove(container, 'modify');
             classie.remove(tabs, 'modify');
         }
+        isRevealed = !isRevealed;
 
-        // simulating the end of the transition:
-        setTimeout(function () {
-            isRevealed = !isRevealed;
-            isAnimating = false;
-            if (reveal) {
-                noscroll = false;
+
+        if (reveal) {
+            noscroll = false;
+        }
+
+        if (window.innerWidth > 1000 && window.onwheel == preventDefault) {
+            setTimeout(function () {
+
                 enable_scroll();
-            }
-        }, 600);
-    }
 
-    // refreshing the page...
-    var pageScroll = scrollY();
-    noscroll = pageScroll === 0;
-
-    disable_scroll();
-
-    if (pageScroll) {
-        isRevealed = true;
-        classie.add(container, 'notrans');
-        classie.add(container, 'modify');
-        classie.add(tabs, 'modify');
+            }, 1000);
+        }
+        isAnimating = false;
     }
 
     window.addEventListener('scroll', scrollPage);

@@ -80,7 +80,7 @@ a:focus {
     text-transform: uppercase;
     letter-spacing: 5px;
     width: 100%;
-    top: 40%;
+    bottom: 40%;
     -webkit-transform: translate3d(0, -50%, 0);
     transform: translate3d(0, -50%, 0);
 }
@@ -190,10 +190,6 @@ a:focus {
     transition-property: color;
 }
 
-
-/*,
-.az-fadeout:not(.notrans) .az-content > div*/
-
 .az-fadeout:not(.notrans) .az-header p {
     -webkit-transition-property: -webkit-transform, opacity;
     transition-property: transform, opacity;
@@ -278,7 +274,6 @@ a:focus {
 
 .az-fadeout .az-content {
     z-index: 1000;
-    /*    position: relative;*/
 }
 
 .az-fadeout .az-content > div {
@@ -291,20 +286,8 @@ a:focus {
     width: 100%;
     font-weight: 300;
     font-size: 1.25em;
-    /*
-    -webkit-transform: translateY(-120px);
-    transform: translateY(-120px);
-*/
-}
-
-.az-tabs.modify nav {
-    /*    border-bottom: 70px solid white;*/
 }
 
 .az-fadeout.modify .az-content > div {
     opacity: 1;
-    /*
-    -webkit-transform: translateY(0);
-transform: translateY(0);
-*/
 }
