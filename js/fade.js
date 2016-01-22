@@ -107,7 +107,7 @@
         noscroll = true,
         isAnimating = false,
         container = document.getElementById('az-container'),
-        tabs = document.getElementById('az-tabs');
+        tabs = document.getElementById('az-tabs-section');
 
     function scrollY() {
         return window.pageYOffset || docElem.scrollTop;

@@ -20,14 +20,12 @@
     min-height: 800px;
 }
 
-
-/* Nav */
-
-.az-tabs nav {
+.az-tabs {
+    position: relative;
     text-align: center;
 }
 
-.az-tabs nav ul {
+.az-tabs ul {
     position: relative;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -50,7 +48,9 @@
     justify-content: center;
 }
 
-.az-tabs nav ul li {
+.az-tabs ul li {
+    width: 25%;
+    float: left;
     position: relative;
     z-index: 1;
     display: block;
@@ -62,7 +62,7 @@
     flex: 1;
 }
 
-.az-tabs nav a {
+.az-tabs a {
     position: relative;
     display: block;
     overflow: hidden;
@@ -71,21 +71,17 @@
     line-height: 2.5;
 }
 
-.az-tabs nav a span {
+.az-tabs a span {
     vertical-align: middle;
     font-size: 0.75em;
 }
 
-.az-tabs nav li a {
-    box-shadow: 0 -6px 0 #5a5a5a inset;
-}
-
-.az-tabs nav li.az-tab-current a {
+.az-tabs li.az-tab-current a {
     border-bottom: none;
     color: #00bfff;
 }
 
-.az-tabs nav a:focus {
+.az-tabs a:focus {
     outline: none;
 }
 
@@ -129,7 +125,7 @@
 .az-content-wrap section.content-current {
     display: block;
     margin: 0 auto;
-    max-width: 1000px;
+    /*    max-width: 1000px;*/
     position: relative;
     padding: 1.5em 0 4em;
     list-style: none;
@@ -174,29 +170,11 @@
     text-align: right;
 }
 
-
-/* Fallback */
-
-.no-js .az-content-wrap section {
-    display: block;
-    padding-bottom: 2em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.no-flexbox nav ul {
-    display: block;
-}
-
-.no-flexbox nav ul li {
-    min-width: 15%;
-    display: inline-block;
-}
-
 @media screen and (max-width: 58em) {
-    .az-tabs nav a span {
+    .az-tabs a span {
         display: none;
     }
-    .az-tabs nav a:before {
+    .az-tabs a:before {
         margin-right: 0;
     }
 }

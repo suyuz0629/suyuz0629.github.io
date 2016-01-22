@@ -1,0 +1,128 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* Header styles and animations */
+
+.ha-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    z-index: 50;
+    font-family: 'Lato', Arial, sans-serif;
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    transform: translateY(0%);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.ha-header-perspective {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    -webkit-perspective: 1100px;
+    -moz-perspective: 1100px;
+    perspective: 1100px;
+    -webkit-perspective-origin: 50% 0;
+    -moz-perspective-origin: 50% 0;
+    perspective-origin: 50% 0;
+}
+
+.ha-header-perspective ul {
+    display: block;
+    height: 60px;
+    padding-top: 10px;
+}
+
+.ha-header-front {
+    z-index: 2;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.glass {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    opacity: 0.5;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.ha-header a {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 0.2em 0.4em;
+    margin: 0 0.4em 0;
+    font-size: 0.8em;
+    cursor: pointer;
+    color: #00bfff;
+    outline: none;
+    text-decoration: none;
+}
+
+.ha-header li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.ha-header a:hover {
+    color: #5a5a5a;
+}
+
+.ha-header a:last-child {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 65em) {
+    body {
+        font-size: 85%;
+    }
+}
+
+@media screen and (max-width: 60em) {
+    .ha-header-perspective > div,
+    .ha-header {
+        text-align: center;
+    }
+    .ha-header h1 {
+        padding: 10px 0;
+        height: 60%;
+    }
+    .ha-header {
+        display: block;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 38em) {
+    section {
+        font-size: 1.3em;
+    }
+    .ha-header h1 {
+        font-size: 2em;
+    }
+    .ha-header {
+        font-size: 60%;
+    }
+}
