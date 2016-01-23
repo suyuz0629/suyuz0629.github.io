@@ -12,85 +12,39 @@
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/mockup.css">
-    <link rel="stylesheet" type="text/css" href="./css/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="./css/newtabs.css" />
+
     <link rel="stylesheet" type="text/css" href="./css/modal.css" />
     <link rel="stylesheet" type="text/css" href="./css/projectcontainer.css" />
     <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bg.css" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="./js/modernizr.custom.js"></script>
 </head>
 
 <body>
-    <div id="az-container" class="az-container az-fadeout">
-        <!-- Top Navigation -->
-        <header class="az-header" id="az-header">
-            <div class="az-mockup" style="transform: scale3d(0.673684, 0.673684, 1);">
-                <img class="az-mockup-img" src="./img/mockup.jpg">
-                <div class="az-mockup-mobile">
-                    <ul id="az-slideshow" class="az-slideshow">
-                        <li class="az-slideshow-item current"><img src="./img/1.png"></li>
-                        <li class="az-slideshow-item"><img src="./img/2.png"></li>
-                        <li class="az-slideshow-item"><img src="./img/3.png"></li>
-                        <li class="az-slideshow-item"><img src="./img/4.png"></li>
-                    </ul>
-                </div>
-
-                <div class="az-instruction">
-                    <h1 id="az-name"><span>Pikallen</span> Allen Zeng <i>An animated perspective mockup with 3D transforms computed with</i></h1>
-
-                </div>
-
-            </div>
-
-        </header>
+    <div id="large-header" class="large-header">
+        <canvas id="demo-canvas"></canvas>
     </div>
-    <!--
-    <header id="ha-header" class="ha-header">
-        <div class="ha-header-perspective" id="az-tabs">
-            <nav>
-                <ul>
-                    <li class="col-sm-3">
-                        <a href="#section-underline-1"><img class="az-image-icon" src="./img/cloud-computing.png" /><span>&nbsp;Computing</span></a>
-                    </li>
-                    <li class="col-sm-3">
-                        <a href="#section-underline-2"><img class="az-image-icon" src="./img/search-engine-tab.png" /><span>Engine</span></a>
-                    </li>
-                    <li class="col-sm-3">
-                        <a href="#section-underline-3"><img class="az-image-icon" src="./img/mobile.png"><span>&nbsp;Apps</span></a>
-                    </li>
-                    <li class="col-sm-3">
-                        <a href="#section-underline-4"><img class="az-image-icon" src="./img/web.png"><span>&nbsp;Apps</span></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
--->
-    <!--
-        <div class="ha-header-perspective">
-            <div class="ha-header-front">
-                
-            </div>
-        </div>
--->
-    <header id="ha-header" class="ha-header ha-header-large">
+    <header class="ha-header">
         <div class="ha-header-perspective">
             <div class="az-tabs">
                 <div class="glass">
+                    <p></p>
                 </div>
                 <ul>
                     <li>
-                        <a href="#section-underline-1"><img class="az-image-icon" src="./img/cloud-computing.png" /><span>&nbsp;Computing</span></a>
+                        <a href="#aws"><img class="az-image-icon" src="./img/cloud-computing.png" /><span>&nbsp;Computing</span></a>
                     </li>
                     <li>
-                        <a href="#section-underline-2"><img class="az-image-icon" src="./img/search-engine-tab.png" /><span>Engine</span></a>
+                        <a href="#search-engine"><img class="az-image-icon" src="./img/search-engine-tab.png" /><span>Engine</span></a>
                     </li>
                     <li>
-                        <a href="#section-underline-3"><img class="az-image-icon" src="./img/mobile.png"><span>&nbsp;Apps</span></a>
+                        <a href="#mobile-app"><img class="az-image-icon" src="./img/mobile.png"><span>&nbsp;Apps</span></a>
                     </li>
                     <li>
-                        <a href="#section-underline-4"><img class="az-image-icon" src="./img/web.png"><span>&nbsp;Apps</span></a>
+                        <a href="#web-app"><img class="az-image-icon" src="./img/web.png"><span>&nbsp;Apps</span></a>
                     </li>
                 </ul>
             </div>
@@ -118,17 +72,18 @@
 </nav>
 -->
         <div class="az-content-wrap">
-            <section id="section-underline-1" class="content-current">
+            <section id="aws" class="az-project-section">
+                <div class="col-md-4 col-sm-5 col-xs-8 col-md-offset-1 col-sm-offset-1 col-xs-offset-2">
+                    <figure class="az-project-container" style="background-color:#c9e5fa">
 
-                <figure class="effect-honey" style="background-color:#c9e5fa">
+                        <img class="top-image" src="./img/twitter-logo.png" alt="twitter">
+                        <img class="bottom-image" src="./img/data-analyze.png" alt="analytics">
+                        <figcaption>
+                            <h2>Data <span>Analytics</span></h2>
 
-                    <img class="top-image" src="./img/twitter-logo.png" alt="twitter">
-                    <img class="bottom-image" src="./img/data-analyze.png" alt="analytics">
-                    <figcaption>
-                        <h2>Data <span>Analytics</span></h2>
-
-                    </figcaption>
-                </figure>
+                        </figcaption>
+                    </figure>
+                </div>
                 <div id="myModal" class="modal">
 
                     <!-- Modal content -->
@@ -166,16 +121,18 @@
                         </ol>
 -->
                 <!--                    </div>-->
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-md-4 col-sm-5 col-xs-8 col-md-offset-2 col-sm-offset-0 col-xs-offset-2">
+                    <figure class="az-project-container" style="background-color:#8e8e8e">
 
-                <figure class="effect-honey" style="background-color:#8e8e8e">
-
-                    <img class="top-image" src="./img/uber-logo.png" alt="uber">
-                    <img class="bottom-image" src="./img/stream-data.png" alt="streaming">
-                    <figcaption>
-                        <h2>Stream <span>Processing</span></h2>
-                        <a href="#"></a>
-                    </figcaption>
-                </figure>
+                        <img class="top-image" src="./img/uber-logo.png" alt="uber">
+                        <img class="bottom-image" src="./img/stream-data.png" alt="streaming">
+                        <figcaption>
+                            <h2>Stream <span>Processing</span></h2>
+                            <a href="#"></a>
+                        </figcaption>
+                    </figure>
+                </div>
                 <!--
                         <p>Design and implement a solution to join multiple streams of GPS data using the Samza API and transfer these GPS data streams into a stream of rider-driver matching list. </p>
                         <ol>
@@ -192,24 +149,28 @@
 -->
 
             </section>
-            <section id="section-underline-2" class="content-current">
-                <div class="col-sm-4">
-                    <img src="./img/search-engine.png" class="img-responsive">
-                </div>
-                <div class="col-sm-4">
-                    <img src="./img/web.png" class="img-responsive">
-                </div>
+            
+            <section id="search-engine" class="az-project-section">
+    <div class="col-sm-4">
+        <img src="./img/search-engine.png" class="img-responsive">
+    </div>
+    <div class="col-sm-4">
+        <img src="./img/web.png" class="img-responsive">
+    </div>
 
-                <div class="col-sm-4">
-                    <img src="./img/internet.png" class="img-responsive">
-                </div>
-            </section>
-            <section id="section-underline-3" class="content-current">
-                <p>3</p>
-            </section>
-            <section id="section-underline-4" class="content-current">
-                <p>4</p>
-            </section>
+    <div class="col-sm-4">
+        <img src="./img/internet.png" class="img-responsive">
+    </div>
+</section>
+<!--
+<section id="mobile-app" class="az-project-section">
+    <p>3</p>
+</section>
+<section id="web-app" class="az-project-section">
+    <p>4</p>
+</section>
+-->
+
         </div>
         <!--        </div>-->
     </section>
@@ -217,7 +178,7 @@
     <!-- /container -->
     <script src="./js/classie.js"></script>
     <script src="./js/main.js"></script>
-    <script src="./js/fade.js"></script>
+    <script src="./js/bg.js"></script>
     <!--    <script src="./js/project.js"></script>-->
 </body>
 
