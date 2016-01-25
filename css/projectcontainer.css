@@ -214,9 +214,21 @@
     .az-project-container {
         display: inline-block;
         float: none;
-        margin: 10px auto;
+        /*margin: 10px auto;
         width: 90%;
+        height: 450px;*/
         height: 450px;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 568) {
+    .az-project-container {
+        display: inline-block;
+        float: none;
+        /*margin: 10px auto;
+        width: 90%;
+        height: 450px;*/
+        height: 360px;
     }
 }
 
@@ -228,9 +240,10 @@
     .az-project-container {
         display: inline-block;
         float: none;
-        margin: 10px auto;
+        /*margin: 10px auto;
         width: 90%;
-        height: 360px;
-        max-height: 90%;
+
+        max-height: 90%;*/
+        height: 320px;
     }
 }

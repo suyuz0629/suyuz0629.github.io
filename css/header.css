@@ -58,7 +58,10 @@
     right: 0;
     bottom: 0;
     background-color: white;
-    opacity: 0.8;
+    background-image: url("../img/bg.png");
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);

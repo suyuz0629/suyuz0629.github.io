@@ -37,4 +37,25 @@
     //        modal.style.display = "block";
     //    });
 
+    function findPos(obj) {
+        var curtop = 0;
+        if (obj.offsetParent) {
+            do {
+                curtop += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+            return [curtop];
+        }
+    }
+
+    addEventListener("load", function () {
+        var links = document.getElementsByTagName("a");
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener("click", function (e) {
+                //prevent event action
+                e.preventDefault();
+            })
+        }
+    });
+
+
 })();
