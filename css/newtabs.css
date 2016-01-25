@@ -120,8 +120,8 @@
 .az-content-wrap section {
     display: inline-block;
     position: relative;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 15%;
+    padding-bottom: 15%;
     text-align: center;
     width: 100%;
 }

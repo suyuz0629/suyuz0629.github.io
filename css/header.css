@@ -10,7 +10,8 @@
 
 /* Header styles and animations */
 
-.ha-header {
+.az-header {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +27,7 @@
     transition: all 0.5s;
 }
 
-.ha-header-perspective {
+.az-header-perspective {
     width: 100%;
     height: 60px;
     position: relative;
@@ -38,13 +39,13 @@
     perspective-origin: 50% 0;
 }
 
-.ha-header-perspective ul {
+.az-header-perspective ul {
     display: block;
     height: 60px;
     padding-top: 10px;
 }
 
-.ha-header-front {
+.az-header-front {
     z-index: 2;
     -webkit-transform-origin: 50% 100%;
     -moz-transform-origin: 50% 100%;
@@ -69,7 +70,7 @@
     filter: blur(5px);
 }
 
-.ha-header a {
+.az-header a {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -83,17 +84,17 @@
     text-decoration: none;
 }
 
-.ha-header li {
+.az-header li {
     display: block;
     margin: 0;
     padding: 0;
 }
 
-.ha-header a:hover {
+.az-header a:hover {
     color: #5a5a5a;
 }
 
-.ha-header a:last-child {
+.az-header a:last-child {
     margin-right: 0;
 }
 
@@ -104,15 +105,15 @@
 }
 
 @media screen and (max-width: 60em) {
-    .ha-header-perspective > div,
-    .ha-header {
+    .az-header-perspective > div,
+    .az-header {
         text-align: center;
     }
-    .ha-header h1 {
+    .az-header h1 {
         padding: 10px 0;
         height: 60%;
     }
-    .ha-header {
+    .az-header {
         display: block;
         height: auto;
     }
@@ -122,10 +123,10 @@
     section {
         font-size: 1.3em;
     }
-    .ha-header h1 {
+    .az-header h1 {
         font-size: 2em;
     }
-    .ha-header {
+    .az-header {
         font-size: 60%;
     }
 }

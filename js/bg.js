@@ -1,7 +1,9 @@
 (function () {
 
-    var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
-
+    var width, height, largeHeader, canvas, ctx, stars, target, animateHeader = true;
+    var colors = [
+        "193,69,164,", "0,172,230,", "121,253,250,"
+    ];
     // Main
     initHeader();
     addListeners();
@@ -22,11 +24,13 @@
         canvas.height = height;
         ctx = canvas.getContext('2d');
 
-        // create particles
-        circles = [];
-        for (var x = 0; x < width * 0.5; x++) {
-            var c = new Circle();
-            circles.push(c);
+
+
+        // create stars
+        stars = [];
+        for (var x = 0; x < width * 0.2; x++) {
+            var c = new Star();
+            stars.push(c);
         }
         animate();
     }
@@ -53,15 +57,23 @@
     function animate() {
         if (animateHeader) {
             ctx.clearRect(0, 0, width, height);
-            for (var i in circles) {
-                circles[i].draws();
+            ctx.font = '80pt zag';
+            //            ctx.lineWidth = 0;
+            var img = new Image();
+            img.src = "img/bg.png";
+            var pat = ctx.createPattern(img, "repeat");
+            ctx.fillStyle = pat; //'#2dd3d3';
+            ctx.textAlign = "center";
+            ctx.fillText('Allen Zeng', width / 2, height / 2);
+            for (var i in stars) {
+                stars[i].draws();
             }
         }
         requestAnimationFrame(animate);
     }
 
     // Canvas manipulation
-    function Circle() {
+    function Star() {
         var _this = this;
 
         // constructor
@@ -72,17 +84,20 @@
 
         function init() {
             _this.pos.x = Math.random() * width;
-            _this.pos.y = height + Math.random() * 100;
+            _this.pos.y = height + Math.random() * 300;
             _this.alpha = 0.1 + Math.random() * 0.3;
             _this.scale = 0.1 + Math.random() * 0.3;
-            _this.velocity = 0.2 + Math.random() * 0.8;
-            _this.r = 255 - Math.floor(Math.random() * 250);
-            _this.g = 255 - Math.floor(Math.random() * 250);
-            _this.b = 255 - Math.floor(Math.random() * 250);
+            _this.velocity = 0.2 + Math.random() * 0.6;
+            //            _this.velocity = 0.2 + (Math.abs(_this.pos.x - width / 5) / width) * Math.random() * 0.8;
+            //            _this.r = 255 - Math.floor(Math.random() * 250);
+            //            _this.g = 255 - Math.floor(Math.random() * 250);
+            //            _this.b = 255 - Math.floor(Math.random() * 250);
+            _this.color = Math.floor(Math.random() * 10) % 3;
             _this.outerRadius = 20 * (0.1 + Math.random() * 0.5);
             _this.innerRadius = 10 * (0.1 + Math.random() * 0.5);
             _this.spikes = Math.floor((Math.random() * 10) + 1) % 3 + 4;
             _this.rotation = 0.5 + Math.random() * 0.5;
+            _this.limit = 60 + Math.random() * 100;
         }
         //        console.log(_this.outerRadius + " " + _this.innerRadius);
         //        console.log(_this.r + " " + _this.g + " " + _this.b);
@@ -106,8 +121,8 @@
             }
             var step = Math.PI / _this.spikes;
             _this.pos.y -= _this.velocity;
-            if (_this.pos.y < 60) {
-                _this.pos.y = height + Math.random() * 100;
+            if (_this.pos.y < _this.limit) {
+                _this.pos.y = height + Math.random() * 200;
             }
             var time = new Date();
             ctx.save();
@@ -133,7 +148,8 @@
             //            _this.rot += Math.PI / 2 * 36;
             //            ctx.rotate(Math.PI * 2 / 10);
             ctx.lineTo(_this.pos.x, _this.pos.y - _this.outerRadius);
-            ctx.fillStyle = 'rgba(255,255,255,' + _this.alpha + ')';
+            //            ctx.fillStyle = 'rgba(255,255,255,' + _this.alpha + ')';
+            ctx.fillStyle = 'rgba(' + colors[_this.color] + _this.alpha + ')';
             //            ctx.fillStyle = 'rgba(' + _this.r + ',' + _this.g + ',' + _this.b + ',' + _this.alpha + ')';
             ctx.fill();
             ctx.restore();
