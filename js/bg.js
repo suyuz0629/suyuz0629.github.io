@@ -39,13 +39,6 @@
         };
     }
 
-    function writeMessage(canvas, message) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
-    }
-
     function canvasInit() {
 
         enterprise = new Enterprise();
@@ -82,18 +75,22 @@
 
     function animate() {
         if (animateHeader) {
-            if (enterprise.pos.x > width || enterprise.pos.y < 0 || enterprise.pos.y > height) {
-                CleanupCachedCanvasses();
-                canvasInit();
-            }
             ctx.clearRect(0, 0, width, height);
-            ctx.font = '80pt bold'; // curlz-mt';
+            if (enterprise.pos.x > width - enterprise.image.width * 5 / 3 || enterprise.pos.y < enterprise.image.height * enterprise.heightRatio / 2 || enterprise.pos.y > height - enterprise.image.height * enterprise.heightRatio * 3) {
+                enterprise.fly(enterprise.imageWarp, enterprise.reverseWarp, 10);
+                if (enterprise.pos.x >= width - enterprise.image.width * 5 / 8 || enterprise.pos.y < 0 || enterprise.pos.y >= height - enterprise.image.height * enterprise.heightRatio * 5 / 6) {
+                    CleanupCachedCanvasses();
+                    canvasInit();
+                }
+            }
+
+            ctx.font = '60pt bold'; // curlz-mt';
             pat = ctx.createPattern(img, "repeat-x");
             ctx.fillStyle = pat;
             ctx.textAlign = "center";
             ctx.fillText('Allen Zeng', width / 2, height / 2);
 
-            enterprise.fly();
+            enterprise.fly(enterprise.image, enterprise.reverse, 50);
             for (var i in stars) {
                 stars[i].draws();
             }
@@ -127,20 +124,24 @@
             _this.image.src = "../img/enterprise-normal.png";
             _this.reverse = new Image();
             _this.reverse.src = "../img/enterprise-reverse.png";
+            _this.imageWarp = new Image();
+            _this.imageWarp.src = "../img/enterprise-normal-warp.png";
+            _this.reverseWarp = new Image();
+            _this.reverseWarp.src = "../img/enterprise-reverse-warp.png";
             _this.pos.x = 0; // - 10 * _this.image.width;
             _this.pos.y = height * Math.random();
             _this.xvelocity = 1.0 + Math.random() * 0.6;
             _this.yvelocity = 1.0 - Math.random() * 2.0;
-            _this.widthRatio = 0.16;
-            _this.heightRatio = 0.16;
+            _this.widthRatio = 0.5; //0.16;
+            _this.heightRatio = 0.5; //0.16;
         }
 
-        _this.fly = function () {
+        _this.fly = function (normalImage, reverseImage, speed) {
             if (mousePos && mousePos.x && mousePos.x != _this.pos.x + _this.image.width * _this.widthRatio && mousePos.y != _this.pos.y + _this.image.height * _this.heightRatio / 2) {
 
-                _this.newyVelocity = (mousePos.y - _this.pos.y - _this.image.height * _this.heightRatio / 2) / 100;
+                _this.newyVelocity = (mousePos.y - _this.pos.y - _this.image.height * _this.heightRatio / 2) / speed;
                 ctx.save();
-                _this.newxVelocity = (mousePos.x - _this.pos.x - _this.image.width * _this.widthRatio) / 100;
+                _this.newxVelocity = (mousePos.x - _this.pos.x - _this.image.width * _this.widthRatio) / speed;
                 _this.pos.x += _this.newxVelocity;
                 _this.pos.y += _this.newyVelocity;
                 ctx.translate(_this.pos.x + _this.image.width * _this.widthRatio, _this.pos.y + _this.image.height * _this.heightRatio / 2);
@@ -148,9 +149,10 @@
                 ctx.translate(-(_this.pos.x + _this.image.width * _this.widthRatio), -(_this.pos.y + _this.image.height * _this.heightRatio / 2));
 
                 if (mousePos.x >= _this.pos.x + _this.image.width * _this.widthRatio) {
-                    ctx.drawImage(_this.image, _this.pos.x, _this.pos.y, _this.image.width * _this.widthRatio, _this.image.height * _this.heightRatio);
+                    ctx.drawImage(normalImage, _this.pos.x, _this.pos.y, _this.image.width * _this.widthRatio, _this.image.height * _this.heightRatio);
+
                 } else {
-                    ctx.drawImage(_this.reverse, _this.pos.x, _this.pos.y, _this.image.width * _this.widthRatio, _this.image.height * _this.heightRatio);
+                    ctx.drawImage(reverseImage, _this.pos.x + _this.image.width * _this.widthRatio, _this.pos.y, _this.image.width * _this.widthRatio, _this.image.height * _this.heightRatio);
                 }
             } else {
                 _this.pos.x += _this.xvelocity;
@@ -160,7 +162,7 @@
                 ctx.rotate(Math.atan(_this.yvelocity / _this.xvelocity));
                 ctx.translate(-_this.pos.x, -_this.pos.y);
 
-                ctx.drawImage(_this.image, _this.pos.x, _this.pos.y, _this.image.width * _this.widthRatio, _this.image.height * _this.heightRatio);
+                ctx.drawImage(normalImage, _this.pos.x, _this.pos.y, _this.image.width * _this.widthRatio, _this.image.height * _this.heightRatio);
             }
             ctx.restore();
 
