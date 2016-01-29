@@ -71,11 +71,11 @@
     margin: 0 auto;
 }
 
-.md-content h3 {
+.md-content > p {
     margin: 0;
     padding: 0.4em;
     text-align: center;
-    font-size: 2.4em;
+    font-size: 30px;
     font-weight: 300;
     opacity: 0.8;
     background: rgba(0, 0, 0, 0.1);
@@ -104,9 +104,20 @@
 }
 
 .md-content button {
-    display: block;
-    margin: 0 auto;
-    font-size: 0.8em;
+    background-color: transparent;
+    display: inline-block;
+    font-size: 30px;
+    float: right;
+}
+
+.md-content button i {
+    vertical-align: middle;
+}
+
+.md-close {
+    background-color: black;
+    color: white;
+    border: 0;
 }
 
 

@@ -1,13 +1,3 @@
-/**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2014, Codrops
- * http://www.codrops.com
- */
 ;
 (function () {
 
@@ -39,9 +29,6 @@
         var overlay = document.querySelector('.md-overlay');
         var body = document.querySelector('body');
         var mobileBody = document.getElementsByTagName('body');
-        console.log(body);
-        console.log(mobileBody);
-        console.log(mobileBody.bind);
 		[].slice.call(document.querySelectorAll('.md-trigger')).forEach(function (el, i) {
 
             var modal = document.querySelector('#' + el.getAttribute('data-modal'));
@@ -61,9 +48,9 @@
 
             el.addEventListener('click', function (ev) {
                 classie.add(modal, 'md-show');
-//                mobileBody.bind('touchmove', function (e) {
-            //                    e.preventDefault()
-            //                });
+                //                mobileBody.bind('touchmove', function (e) {
+                //                    e.preventDefault()
+                //                });
                 classie.add(body, 'stop-scrolling');
                 overlay.removeEventListener('click', removeModalHandler);
                 overlay.addEventListener('click', removeModalHandler);
@@ -78,7 +65,7 @@
             close.addEventListener('click', function (ev) {
                 ev.stopPropagation();
                 removeModalHandler();
-//                mobileBody.unbind('touchmove');
+                //                mobileBody.unbind('touchmove');
                 classie.remove(body, 'stop-scrolling');
             });
 

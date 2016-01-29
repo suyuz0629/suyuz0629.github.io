@@ -1,13 +1,3 @@
-/* Default tab style */
-
-@font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'stroke7pixeden';
-    src: url('../fonts/stroke7pixeden/stroke7pixeden.eot?u58ytb');
-    src: url('../fonts/stroke7pixeden/stroke7pixeden.eot?#iefixu58ytb') format('embedded-opentype'), url('../fonts/stroke7pixeden/stroke7pixeden.woff?u58ytb') format('woff'), url('../fonts/stroke7pixeden/stroke7pixeden.ttf?u58ytb') format('truetype'), url('../fonts/stroke7pixeden/stroke7pixeden.svg?u58ytb#stroke7pixeden') format('svg');
-}
-
 .az-tabs {
     position: absolute;
     overflow: hidden;
@@ -64,26 +54,35 @@
 }
 
 .az-tabs a {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 0.2em 0.4em;
+    margin: 0 0.4em 0;
+    font-size: 0.8em;
+    cursor: pointer;
+    color: white;
+    outline: none;
     position: relative;
-    display: block;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 2.5;
+    text-decoration: none;
 }
 
 .az-tabs a span {
     vertical-align: middle;
-    font-size: 0.75em;
+    text-decoration: none;
+}
+
+.az-tabs a:hover {
+    color: #00bfff;
+    text-decoration: none;
 }
 
 .az-tabs li.az-tab-current a {
     border-bottom: none;
     color: #00bfff;
-}
-
-.az-tabs a:focus {
-    outline: none;
 }
 
 .az-image-icon {
@@ -93,28 +92,12 @@
 }
 
 
-/* Icons */
-
-.icon::before {
-    z-index: 10;
-    font-size: 0;
-    display: inline-block;
-    margin: 0 0.4em 0 0;
-    vertical-align: middle;
-    text-transform: none;
-    font-family: 'stroke7pixeden';
-    speak: none;
-    -webkit-backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-
 /* Content */
 
 .az-content-wrap {
     font-size: 0;
     position: relative;
+    z-index: 2;
 }
 
 .az-content-wrap section {
@@ -125,15 +108,6 @@
     text-align: center;
     width: 100%;
 }
-
-/*
-@media (max-width: 768px) {
-    .az-content-wrap section {
-        padding-top: 25%;
-        padding-bottom: 25%;
-    }
-}
-*/
 
 .az-content-wrap section az-title {
     font-size: 5vw;

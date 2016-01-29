@@ -93,8 +93,7 @@
     pointer-events: none;
 }
 
-.az-project-container figcaption,
-.az-project-container figcaption > a {
+.az-project-container figcaption {
     position: absolute;
     top: 0;
     left: 0;
@@ -102,12 +101,82 @@
     height: 100%;
 }
 
+
+/*
 .az-project-container figcaption > a {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     z-index: 1000;
-    text-indent: 200%;
-    white-space: nowrap;
-    font-size: 0;
-    opacity: 0;
+}
+*/
+
+.az-project-container:hover figcaption > i {
+    color: white;
+    font-size: 50px;
+    left: calc(25% - 25px);
+    top: calc(75% - 25px);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+.az-project-container:hover figcaption > i:hover {
+    -webkit-animation: spin 0.4s linear forwards;
+    -moz-animation: spin 0.4s linear forwards;
+    -ms-animation: spin 0.4s linear forwards;
+    -o-animation: spin 0.4s linear forwards;
+    animation: spin 0.4s linear forwards;
+}
+
+#twitter,
+#facebook {
+    background-color: #c9e5fa;
+}
+
+#uber {
+    background-color: #8e8e8e;
+}
+
+#twitter:hover > i:hover,
+#facebook:hover > i:hover {
+    color: #ff9f95;
+}
+
+#uber:hover > i:hover {
+    color: #ffc200
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(45deg);
+    }
+}
+
+@-ms-keyframes spin {
+    100% {
+        -ms-transform: rotate(45deg);
+    }
+}
+
+@-o-keyframes spin {
+    100% {
+        -o-transform: rotate(45deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(45deg);
+    }
 }
 
 .az-project-container h2 {
@@ -129,7 +198,6 @@
     color: white;
     width: 100%;
     text-align: left;
-    /*    padding-left: 15%;*/
 }
 
 .az-project-container h2 p {

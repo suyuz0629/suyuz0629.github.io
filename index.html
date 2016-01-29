@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Allen Zeng</title>
     <link rel="shortcut icon" href="./img/az.png">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/mockup.css">
@@ -54,7 +55,9 @@
     <section class="az-tabs-section" id="az-tabs-section">
         <div class="md-modal md-effect-10" id="twitter-data-analytics">
             <div class="md-content">
-                <h3>Twitter data analytics</h3>
+                <p>Twitter data analytics
+                    <button class="md-close"><i class="fa fa-times-circle"></i></button>
+                </p>
                 <div>
                     <p>This is a modal window. You can do the following things with it:</p>
                     <ul>
@@ -62,13 +65,15 @@
                         <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
                         <li><strong>Close:</strong> click on the button below to close the modal.</li>
                     </ul>
-                    <button class="md-close">Close me!</button>
+
                 </div>
             </div>
         </div>
         <div class="md-modal md-effect-10" id="uber-stream-processing">
             <div class="md-content">
-                <h3>Uber stream processing</h3>
+                <p>Uber stream processing
+                    <button class="md-close"><i class="fa fa-times-circle"></i></button>
+                </p>
                 <div>
                     <p>This is a modal window. You can do the following things with it:</p>
                     <ul>
@@ -76,13 +81,16 @@
                         <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
                         <li><strong>Close:</strong> click on the button below to close the modal.</li>
                     </ul>
-                    <button class="md-close">Close me!</button>
+
                 </div>
             </div>
         </div>
         <div class="md-modal md-effect-10" id="facebook-social-graph">
             <div class="md-content">
-                <h3>Facebook social graph</h3>
+                <p>Facebook social graph
+                    <button class="md-close"><i class="fa fa-times-circle"></i></button>
+                </p>
+
                 <div>
                     <p>This is a modal window. You can do the following things with it:</p>
                     <ul>
@@ -90,7 +98,6 @@
                         <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
                         <li><strong>Close:</strong> click on the button below to close the modal.</li>
                     </ul>
-                    <a class="md-close">Close me!</a>
                 </div>
             </div>
         </div>
@@ -98,37 +105,36 @@
         <div class="az-content-wrap">
             <section id="aws" class="az-project-section">
                 <div class="col-sm-3">
-                    <figure class="az-project-container" style="background-color:#c9e5fa">
+                    <figure class="az-project-container">
 
                         <img class="top-image" src="./img/twitter-logo.png" alt="twitter">
                         <img class="bottom-image" src="./img/data-analyze.png" alt="analytics">
-                        <figcaption>
+                        <figcaption id="twitter">
                             <h2>Data <span>Analytics</span></h2>
-                            <a class="md-trigger" data-modal="twitter-data-analytics"></a>
+                            <i class="md-trigger fa fa-plus-circle" data-modal="twitter-data-analytics"></i>
                         </figcaption>
                     </figure>
                 </div>
 
                 <div class="col-sm-3">
-                    <figure class="az-project-container" style="background-color:#8e8e8e">
-
+                    <figure class="az-project-container">
                         <img class="top-image" src="./img/uber-logo.png" alt="uber">
                         <img class="bottom-image" src="./img/stream-data.png" alt="streaming">
-                        <figcaption>
+                        <figcaption id="uber">
                             <h2>Stream <span>Processing</span></h2>
-                            <a class="md-trigger" data-modal="uber-stream-processing"></a>
+                            <i class="md-trigger fa fa-plus-circle" data-modal="uber-stream-processing"></i>
                         </figcaption>
                     </figure>
                 </div>
 
                 <div class="col-sm-3">
-                    <figure class="az-project-container" style="background-color:#8e8e8e">
+                    <figure class="az-project-container" style="background-color:#c9e5fa">
 
-                        <img class="top-image" src="./img/facebook-logo.png" alt="uber">
-                        <img class="bottom-image" src="./img/time-line.png" alt="streaming">
-                        <figcaption>
+                        <img class="top-image" src="./img/facebook-logo.png" alt="facebook">
+                        <img class="bottom-image" src="./img/time-line.png" alt="graph">
+                        <figcaption id="facebook">
                             <h2>Social <span>Graph</span></h2>
-                            <a class="md-trigger" data-modal="facebook-social-graph"></a>
+                            <i class="md-trigger fa fa-plus-circle" data-modal="facebook-social-graph"></i>
                         </figcaption>
                     </figure>
                 </div>
@@ -220,7 +226,7 @@
     <script src="./js/classie.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/bg.js"></script>
-    <script src="./js/project.js"></script>
+    <!--    <script src="./js/project.js"></script>-->
 </body>
 
 </html>
