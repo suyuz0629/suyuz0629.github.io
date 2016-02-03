@@ -71,8 +71,28 @@
 
         });
 
-    }
 
+    }
+    document.getElementById('aws-tab').addEventListener('click', function () {
+        var element = document.getElementById('aws');
+        var distance = findPos(element);
+        window.scrollTo(0, distance);
+    });
+    document.getElementById('search-engine-tab').addEventListener('click', function () {
+        var element = document.getElementById('search-engine');
+        var distance = findPos(element);
+        window.scrollTo(0, distance);
+    });
+    document.getElementById('mobile-app-tab').addEventListener('click', function () {
+        var element = document.getElementById('mobile-app');
+        var distance = findPos(element);
+        window.scrollTo(0, distance);
+    });
+    document.getElementById('web-app-tab').addEventListener('click', function () {
+        var element = document.getElementById('web-app');
+        var distance = findPos(element);
+        window.scrollTo(0, distance);
+    });
     init();
 
 })();

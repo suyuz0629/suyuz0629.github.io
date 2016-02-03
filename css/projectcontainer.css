@@ -10,6 +10,9 @@
     text-transform: uppercase;
     font-size: 1.25em;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
@@ -35,9 +38,6 @@
     margin: 4.16%;
 }
 
-
-/* Common style */
-
 .az-project-container {
     width: 100%;
     overflow: hidden;
@@ -54,10 +54,12 @@
     -webkit-transform: scale(2);
     -moz-transform: scale(2);
     -ms-transform: scale(2);
+    -o-transform: scale(2);
     transform: scale(2);
     -webkit-transform: left top;
     -moz-transform: left top;
     -ms-transform: left top;
+    -o-transform: left top;
     transform-origin: left top;
 }
 
@@ -75,6 +77,7 @@
     -webkit-transform: right bottom;
     -moz-transform: right bottom;
     -ms-transform: right bottom;
+    -o-transform: right bottom;
     transform-origin: right bottom;
 }
 
@@ -85,6 +88,9 @@
     text-transform: uppercase;
     font-size: 1.25em;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
@@ -101,34 +107,33 @@
     height: 100%;
 }
 
-
-/*
-.az-project-container figcaption > a {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1000;
+.az-project-container h2 {
+    opacity: 0;
+    top: 50%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
 }
-*/
 
 .az-project-container:hover figcaption > i {
     color: white;
-    font-size: 50px;
-    left: calc(25% - 25px);
-    top: calc(75% - 25px);
-    width: 50px;
-    height: 50px;
+    font-size: 3vw;
+    left: 20%;
+    top: 70%;
+    /*
+    width: 30%;
+height: 30%;
+*/
     position: absolute;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }
 
-.az-project-container:hover figcaption > i:hover {
-    -webkit-animation: spin 0.4s linear forwards;
-    -moz-animation: spin 0.4s linear forwards;
-    -ms-animation: spin 0.4s linear forwards;
-    -o-animation: spin 0.4s linear forwards;
-    animation: spin 0.4s linear forwards;
+.az-project-container:hover figcaption > i:hover:before {
+    content: "\f08e";
 }
 
 #twitter,
@@ -179,39 +184,12 @@
     }
 }
 
-.az-project-container h2 {
-    color: #00bfff;
-    display: none;
-    font-size: 1.5vw;
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    height: 20px;
-    padding-left: 50%;
-    text-align: left;
-    width: 50%;
-    -webkit-transform: translate3d(0, -30px, 0);
-    transform: translate3d(0, -30px, 0);
-}
-
-.az-project-container h2 span {
-    color: white;
-    width: 100%;
-    text-align: left;
-}
-
-.az-project-container h2 p {
-    color: #00bfff;
-    display: none;
-    margin: 0;
-    height: 5%;
-}
-
 .az-project-container img {
     opacity: 0.9;
     -webkit-transition: -webkit-transform 0.4s;
     -moz-transition: -moz-transform 0.4s;
     -ms-transform: -moz-transform 0.4s;
+    -o-transform: -moz-transform 0.4s;
     transition: transform 0.4s;
 }
 
@@ -221,6 +199,7 @@
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1);
 }
 
@@ -230,6 +209,7 @@
     -webkit-transform: left top;
     -moz-transform: left top;
     -ms-transform: left top;
+    -o-transform: left top;
     transform-origin: left top;
     opacity: 0.8;
 }
@@ -242,26 +222,45 @@
     -webkit-transform: right bottom;
     -moz-transform: right bottom;
     -ms-transform: right bottom;
+    -o-transform: right bottom;
     transform-origin: right bottom;
     opacity: 1;
 }
 
-.az-project-container figcaption::before,
-.az-project-container h2 {
-    -webkit-transition: -webkit-transform 0.35s;
-    transition: transform 0.35s;
+.az-project-container:hover h2 {
+    font-size: 1.5vw;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    height: 20px;
+    padding-left: 50%;
+    text-align: left;
+    width: 50%;
+    display: block;
+    opacity: 1.0;
+    color: #00bfff;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }
 
-.az-project-container:hover figcaption::before,
-.az-project-container:hover h2 {
+.az-project-container h2 span {
     display: block;
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
 }
 
 .az-project-container:hover h2 span {
-    display: block;
+    color: white;
+    width: 100%;
+    text-align: left;
+}
+
+.az-project-container:hover h2 p {
+    color: #00bfff;
+    display: none;
+    margin: 0;
+    height: 5%;
 }
 
 #aws {
@@ -276,8 +275,23 @@
     background-color: #5a5a5a;
 }
 
+#mobile-app {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #ffe4e1;
+}
+
+#web-app {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #00bfff;
+}
+
 @media (max-width: 768px) {
-    .az-project-container h2 {
+    .az-project-container:hover h2 {
         font-size: 5vw;
+    }
+    .az-project-container:hover figcaption > i {
+        font-size: 10vw;
     }
 }

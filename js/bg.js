@@ -1,7 +1,7 @@
 (function () {
 
-    var width, height, largeHeader, canvas, ctx, enterprise, stars, target, img, pat, mousePos, animateHeader = true;
-    var colors = [
+    var width, height, largeHeader, canvas, ctx, enterprise, stars, target, img, pat, mousePos, animateHeader = true,
+        colors = [
         "193,69,164,", "0,172,230,", "121,253,250,"
     ];
     // Main
@@ -85,7 +85,7 @@
             }
 
             ctx.font = '60pt bold'; // curlz-mt';
-            pat = ctx.createPattern(img, "repeat-x");
+            pat = ctx.createPattern(img, "repeat");
             ctx.fillStyle = pat;
             ctx.textAlign = "center";
             ctx.fillText('Allen Zeng', width / 2, height / 2);
@@ -128,12 +128,12 @@
             _this.imageWarp.src = "../img/enterprise-normal-warp.png";
             _this.reverseWarp = new Image();
             _this.reverseWarp.src = "../img/enterprise-reverse-warp.png";
-            _this.pos.x = 0; // - 10 * _this.image.width;
-            _this.pos.y = height * Math.random();
             _this.xvelocity = 1.0 + Math.random() * 0.6;
             _this.yvelocity = 1.0 - Math.random() * 2.0;
             _this.widthRatio = 0.5; //0.16;
             _this.heightRatio = 0.5; //0.16;
+            _this.pos.x = 0; // - 10 * _this.image.width;
+            _this.pos.y = (height - _this.image.height * _this.heightRatio * 2) * Math.random();
         }
 
         _this.fly = function (normalImage, reverseImage, speed) {
