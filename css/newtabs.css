@@ -7,7 +7,6 @@
 }
 
 .az-tabs-section {
-    min-height: 800px;
     position: relative;
 }
 
@@ -23,9 +22,8 @@
     display: -moz-flex;
     display: -ms-flex;
     display: flex;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-    max-width: 1200px;
     list-style: none;
     -ms-box-orient: horizontal;
     -ms-box-pack: center;
@@ -37,14 +35,16 @@
     -moz-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
+    width: 100%;
 }
 
 .az-tabs ul li {
     width: 25%;
     float: left;
+    height: 60px;
     position: relative;
     z-index: 1;
-    display: block;
+    display: inline-block;
     margin: 0;
     text-align: center;
     -webkit-flex: 1;
@@ -59,15 +59,17 @@
     letter-spacing: 1px;
     font-weight: 700;
     padding: 0.2em 0.4em;
-    margin: 0 0.4em 0;
+    height: 60px;
     font-size: 0.8em;
     cursor: pointer;
-    color: white;
+    vertical-align: middle;
     outline: none;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
     text-decoration: none;
+    width: 100%;
+    margin: auto 0;
 }
 
 .az-tabs a span {
@@ -83,11 +85,12 @@
 .az-tabs li.az-tab-current a {
     border-bottom: none;
     color: #00bfff;
+    width: 100%;
 }
 
 .az-image-icon {
     height: 40px;
-    margin: auto;
+    margin: 10px;
     vertical-align: middle;
 }
 

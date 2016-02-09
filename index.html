@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/aboutme.css" />
     <link rel="stylesheet" type="text/css" href="./css/mockup.css">
     <link rel="stylesheet" type="text/css" href="./css/newtabs.css" />
 
@@ -28,42 +29,82 @@
     <div id="large-header" class="az-large-header">
         <canvas id="header-canvas"></canvas>
     </div>
-    <header class="az-header" id="az-header">
-        <div class="az-header-perspective">
-            <div class="az-tabs">
-                <div class="glass">
-                    <p></p>
-                </div>
-                <ul>
-                    <li>
-                        <a id="aws-tab"><img class="az-image-icon" src="./img/cloud-computing.png" /><span>&nbsp;Computing</span></a>
-                    </li>
-                    <li>
-                        <a id="search-engine-tab"><img class="az-image-icon" src="./img/search-engine-tab.png" /><span>Engine</span></a>
-                    </li>
-                    <li>
-                        <a id="mobile-app-tab"><img class="az-image-icon" src="./img/mobile.png"><span>&nbsp;Apps</span></a>
-                    </li>
-                    <li>
-                        <a id="web-app-tab"><img class="az-image-icon" src="./img/web.png"><span>&nbsp;Apps</span></a>
-                    </li>
-                </ul>
+    <div id="az-myself">
+
+
+        <p>About me</p>
+        <!--
+        <svg width="400" height="400" viewBox="0 0 400 400">
+            <defs>
+                <clipPath id="za-shape">
+                    <path d="M200,0 L373,100 L373,300 L200,400 L23,300 L23,100z" />
+                </clipPath>
+            </defs>
+            <image clip-path="url(#az-shape)" xlink:href="img/I.png" x="0" y="0" height="100px" width="100px" />
+        </svg>
+-->
+        <div id="az-introduction">
+            <div class="col-sm-6">
+                <img id="az-avatar">
             </div>
+            <div class="col-sm-6">
+            <div id="az-introduction-bg">
+
+            </div>
+            <p>
+
+                As a software developer, I can explore the new world and build new things that might have never  existed in the world. During the exploration, I can use what I'ver learned and I must learn new skills to handle the challenge that I might encounter. This is must be a life full of adventure.
+                <!-- Carnegie Mellon University -- Pittsburgh, PA -->
+                <!-- <br>GAP: 3.86 Expected graduation Spring 2016
+                <br>Master of Science, Mechanical Engieering
+                <br>Shanghai Jiao Tong University -- Shanghai, China
+                <br>Bachelor of Science, Mechanical Engieering -->
+            </p>
+            </div>
+
+
         </div>
-    </header>
+    </div>
+
 
     <section class="az-tabs-section" id="az-tabs-section">
+        <nav class="az-header" id="az-header">
+            <div class="az-header-perspective">
+                <div class="az-tabs">
+                    <div class="glass">
+                    </div>
+                    <ul>
+                        <li>
+                            <a id="aws-tab"><img class="az-image-icon" src="./img/cloud-computing.png" /><span>&nbsp;Computing</span></a>
+                        </li>
+                        <li>
+                            <a id="search-engine-tab"><img class="az-image-icon" src="./img/search-engine-tab.png" /><span>Engine</span></a>
+                        </li>
+                        <li>
+                            <a id="mobile-app-tab"><img class="az-image-icon" src="./img/mobile.png"><span>&nbsp;Apps</span></a>
+                        </li>
+                        <li>
+                            <a id="web-app-tab"><img class="az-image-icon" src="./img/web.png"><span>&nbsp;Apps</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="md-modal md-effect-10" id="twitter-data-analytics">
             <div class="md-content">
                 <p>Twitter data analytics
                     <button class="md-close"><i class="fa fa-times-circle"></i></button>
                 </p>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
+                    <p>Design, develop, deploy and optimize fully functional web-servers to handle high loads of twitter analytics requests and build a frontend system for the web service.
+                    </p>
                     <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                        <li>Implemented Extract Transform and Load on a large data set (~1TB) and loaded into MySQL on EC2. </li>
+                        <li>Designed and optimized MySQL databases to deal with scale, improve throughput and complicate queries.
+                        </li>
+                        <li>Developed a distributed iterative application using the Apache Spark to analyze the Twitter social graph using PageRank algorithm to find the most influential users on the network on EMR.
+                        </li>
+                        <li>Ranked <strong>15/72</strong> in the final live tests of the web server performance.</li>
                     </ul>
 
                 </div>
@@ -75,11 +116,11 @@
                     <button class="md-close"><i class="fa fa-times-circle"></i></button>
                 </p>
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
+                    <p>Design and implement a solution to join multiple streams of GPS data using the Samza API and transfer these GPS data streams into a stream of rider-driver matching list.</p>
                     <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                        <li>Read in multiple streams of GPS data about the location of riders and drivers generated by Apache Kafka and joined these streams using Apache Samza on EMR.</li>
+                        <li>Processed these data according to the distance between riders and drivers to generate a list of rider-driver matching to enable a driver matching service like Uber using Apache Samza.</li>
+                        <li>Generated price factor for the current request according to the block driver numbers in history requests using Apache Samza.</li>
                     </ul>
 
                 </div>
@@ -92,11 +133,11 @@
                 </p>
 
                 <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
+                    <p>Provision, configure and manage various Database-as-a-Service offerings on AWS. Combine multiple back-end database services to provide data to a single, complex web application.</p>
                     <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
+                        <li>Constructed the basic user profile system using MySQL on EC2.</li>
+                        <li>Built a social graph to store the relations between users using HBase on EMR.</li>
+                        <li>Stored all the posts of the social network using DynamoDB.</li>
                     </ul>
                 </div>
             </div>
@@ -138,72 +179,17 @@
                         </figcaption>
                     </figure>
                 </div>
-
-                <!--
-                <div id="myModal" class="modal">
-
-    <div class="modal-content">
-        <span class="close">x</span>
-        <p>Some text in the Modal..</p>
-    </div>
-
-</div>
--->
-                <!--
-                    <div class="az-project-container">
-                        <img src="./img/twitter-logo.png">
-                        <div class="az-project-description">
-
-                        </div>
--->
-                <!--
-                            <az-project-title>
-    &nbsp;Twitter Analytics on the Cloud</az-project-title>
-<az-time>Fall 2015</az-time>
--->
-                <!--
-                        <p>Design, develop, deploy and optimize fully functional web-servers to handle high loads of twitter analytics requests and build a front end system for the web service.</p>
-                        <ol>
-                            <li>Implemented Extract Transform and Load (ETL) on a large data set (~ 1 TB) and loaded into MySQL on EC2. </li>
-                            <li>
-                                <p>Designed and optimized MySQL databases to deal with scale, improve throughput and complicate queries on EC2.</p>
-                            </li>
-                            <li>
-                                <p>Developed a distributed iterative applications using the Apache Spark framework to analyze the Twitter social graph using PageRank algorithm to find the most influential users on the network on EMR.</p>
-                            </li>
-                            <li>
-                                <p>Ranked 15th in 72 teams in the final live tests of the web server.</p>
-                            </li>
-                        </ol>
--->
-                <!--                    </div>-->
-                <!--                <div class="col-sm-2"></div>-->
-
-                <!--
-                        <p>Design and implement a solution to join multiple streams of GPS data using the Samza API and transfer these GPS data streams into a stream of rider-driver matching list. </p>
-                        <ol>
-                            <li>
-                                <p>Read in multiple streams of GPS data about the location of riders and drivers generated by Apache Kafka and join these streams using Apache Samza on EMR.</p>
-                            </li>
-                            <li>
-                                <p>Processed these data according to the distance between riders and drivers to generate a list of rider-driver matchings to enable a driver matching service like Uber using Apache Samza on EMR.</p>
-                            </li>
-                            <li>
-                                <p>According to the block driver numbers in history requests, generated a price factor for the current request using Apache Samza on EMR.</p>
-                            </li>
-                        </ol>
--->
-
             </section>
 
             <section id="search-engine" class="az-project-section">
                 <div class="col-sm-4">
                     <img src="./img/search-engine.png" class="img-responsive">
+
                 </div>
             </section>
 
             <section id="mobile-app" class="az-project-section">
-                <div><img src="./img/mobile.png" class="img-responsive"></div>
+                <img >
             </section>
             <section id="web-app" class="az-project-section">
                 <div>

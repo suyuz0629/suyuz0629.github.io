@@ -25,7 +25,7 @@
         ctx = canvas.getContext('2d');
 
         img = new Image();
-        img.src = "../img/letter.png";
+        img.src = "img/letter.png";
         stars = [];
         canvasInit();
         animate();
@@ -48,7 +48,7 @@
 
         // create stars
 
-        for (var x = 0; x < width * 0.01; x++) {
+        for (var x = 0; x < width * 0.0005; x++) {
             var c = new Star();
             stars.push(c);
         }
@@ -121,13 +121,13 @@
 
         function init() {
             _this.image = new Image();
-            _this.image.src = "../img/enterprise-normal.png";
+            _this.image.src = "img/enterprise-normal.png";
             _this.reverse = new Image();
-            _this.reverse.src = "../img/enterprise-reverse.png";
+            _this.reverse.src = "img/enterprise-reverse.png";
             _this.imageWarp = new Image();
-            _this.imageWarp.src = "../img/enterprise-normal-warp.png";
+            _this.imageWarp.src = "img/enterprise-normal-warp.png";
             _this.reverseWarp = new Image();
-            _this.reverseWarp.src = "../img/enterprise-reverse-warp.png";
+            _this.reverseWarp.src = "img/enterprise-reverse-warp.png";
             _this.xvelocity = 1.0 + Math.random() * 0.6;
             _this.yvelocity = 1.0 - Math.random() * 2.0;
             _this.widthRatio = 0.5; //0.16;
