@@ -36,8 +36,8 @@
 .az-project-section {
     display: none;
     position: absolute;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 1%;
+    padding-bottom: 2.5%;
     text-align: center;
     width: 100%;
 }
@@ -270,6 +270,7 @@ height: 30%;
     display: none;
     margin: 0;
     height: 5%;
+    display: table-cell;
 }
 
 #aws {
@@ -289,13 +290,86 @@ height: 30%;
 }
 
 @media (max-width: 768px) {
-    .az-project-section {
-        padding-top: 80px;
-    }
     .az-project-container:hover h2 {
         font-size: 5vw;
     }
     .az-project-container:hover figcaption > i {
         font-size: 10vw;
+    }
+}
+
+#mobile-app > i {
+    display: inline-block;
+    font-size: 50px;
+    font-weight: 600;
+    height: 100%;
+    margin-top: 20%;
+}
+
+#leftSign {
+    float: left;
+    padding-left: 10%;
+}
+
+#rightSign {
+    float: right;
+    padding-right: 10%;
+}
+
+#mobile-app div {
+    margin: 0;
+    height: 100%;
+    width: 70%;
+}
+
+#mobile-app p {
+    display: inline-block;
+    margin-right: 20%;
+    font-size: 20px;
+    height: 40px;
+    width: 30%;
+}
+
+#image1 {
+    display: inline-block;
+}
+
+#image2 {
+    display: none;
+}
+
+#image3 {
+    display: none;
+}
+
+#image4 {
+    display: none;
+}
+
+#mobile-app img {
+    height: 80%;
+    margin: 2% 2%;
+}
+
+@media (max-width: 768px) {
+    #mobile-app > i {
+        font-size: 30px;
+        margin-top: 50%;
+        width: 5%;
+    }
+    #leftSign {
+        float: left;
+        padding-left: 5%;
+    }
+    #mobile-app div p {
+        display: block;
+        width: 80%;
+    }
+    #mobile-app div {
+        padding-top: 5%;
+        width: 60%;
+    }
+    #mobile-app img {
+        height: 75%;
     }
 }
