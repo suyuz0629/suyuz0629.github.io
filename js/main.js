@@ -97,7 +97,7 @@
             });
 
         });
-
+        initMobile();
     }
 
 
@@ -158,51 +158,93 @@
     function setHeight(id, height) {
         document.getElementById(id).style.height = height + "px";
     }
-    setHeight("az-myself", innerHeight + 60);
-    setHeight("aws", innerHeight - 60);
-    setHeight("search-engine", innerHeight - 60);
-    setHeight("mobile-app", innerHeight - 60);
-    setHeight("web-app", innerHeight - 60);
+
+    window.addEventListener('resize', function () {
+        initHeight();
+    })
+    initHeight();
+
+    function initHeight() {
+        setHeight("az-myself", innerHeight + 60);
+        if (window.innerWidth <= 992) {
+            console.log(findPos(document.getElementById('facebookPro')));
+            setHeight("aws", document.getElementById('facebookPro').getBoundingClientRect().height * 4);
+        } else {
+            setHeight("aws", innerHeight - 60);
+        }
+        setHeight("search-engine", innerHeight - 60);
+        setHeight("mobile-app", innerHeight - 60);
+        setHeight("web-app", innerHeight - 60);
+    }
+
     window.addEventListener('mousewheel', function (e) {
         var direction = e.wheelDelta < 0 ? 'down' : 'up';
         var topPos = 0;
         var myselPos = findPos(myself);
         var proPos = findPos(pros);
         var cur = document.body.scrollTop;
-
         if (e.wheelDelta < 0) {
-            e.preventDefault();
-            disableScroll();
             if (cur < myselPos) {
-                console.log("to my");
+                disableScroll();
+                e.preventDefault();
                 pageScroll(5, myselPos);
                 setTimeout(function () {
                     enableScroll();
                 }, 1500);
             } else if (cur < proPos) {
-                console.log("to pro");
+                disableScroll();
+                e.preventDefault();
                 pageScroll(5, proPos);
                 setTimeout(function () {
                     enableScroll();
                 }, 1500);
             }
         } else if (e.wheelDelta > 0) {
-            if (cur > myselPos) {
-                disableScroll();
-                e.preventDefault();
-                pageScroll(-5, myselPos);
-                setTimeout(function () {
-                    enableScroll();
-                }, 1500);
-            } else if (cur > 0) {
-                disableScroll();
-                e.preventDefault();
-                pageScroll(-5, 0);
-                setTimeout(function () {
-                    enableScroll();
-                }, 1500);
+            if (window.innerWidth <= 992) {
+                if (cur > proPos) {
+                    if (cur < proPos + 5) {
+                        disableScroll();
+                        e.preventDefault();
+                        pageScroll(-5, proPos);
+                        setTimeout(function () {
+                            enableScroll();
+                        }, 1500);
+                    }
+                } else if (cur > myselPos) {
+                    disableScroll();
+                    e.preventDefault();
+                    pageScroll(-5, myselPos);
+                    setTimeout(function () {
+                        enableScroll();
+                    }, 1500);
+                } else if (cur > 0) {
+                    disableScroll();
+                    e.preventDefault();
+                    pageScroll(-5, 0);
+                    setTimeout(function () {
+                        enableScroll();
+                    }, 1500);
+                }
+            } else {
+                if (cur > myselPos) {
+                    disableScroll();
+                    e.preventDefault();
+                    pageScroll(-5, myselPos);
+                    setTimeout(function () {
+                        enableScroll();
+                    }, 1500);
+                } else if (cur > 0) {
+                    disableScroll();
+                    e.preventDefault();
+                    pageScroll(-5, 0);
+                    setTimeout(function () {
+                        enableScroll();
+                    }, 1500);
+                }
             }
+
         }
+        //        }
     });
 
     function pageScroll(step, targetPos) {
@@ -224,6 +266,52 @@
                 window.scrollTo(0, targetPos);
             }
         }
+
+    }
+
+    var currentImageInMobile = 0;
+    var mobileDescription = {
+        1: "This is the Map page",
+        2: "This is the Menu panel",
+        3: "This is the Login modal",
+        4: "This is the Setting section",
+        5: "This is the Menu panel after login"
+    }
+
+    function initMobile() {
+        var left = document.getElementById('leftSign');
+        var right = document.getElementById('rightSign');
+        left.addEventListener('click', function () {
+            currentImageInMobile--;
+            currentImageInMobile += 5;
+            currentImageInMobile %= 5;
+            changeImage();
+        });
+        right.addEventListener('click', function () {
+            currentImageInMobile++;
+            currentImageInMobile %= 5;
+            changeImage();
+        });
+    }
+
+    function changeImage() {
+        var mobileProject = document.getElementById('mobileProject');
+        var image = document.getElementById('mobileImage');
+        var description = document.getElementById('mobileDescription')
+        setTimeout(function () {
+            mobileProject.className = "closed";
+            setTimeout(function () {
+                mobileProject.style.opacity = 0;
+                image.src = 'img/mobile/image' + (currentImageInMobile + 1) + '.png';
+                description.innerHTML = mobileDescription[currentImageInMobile + 1];
+                setTimeout(function () {
+                    mobileProject.className = "open";
+                    setTimeout(function () {
+                        mobileProject.style.opacity = 1.0;
+                    }, 10);
+                }, 500);
+            }, 500);
+        }, 10);
 
     }
 

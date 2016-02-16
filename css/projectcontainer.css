@@ -1,6 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .az-project-description {
@@ -289,7 +295,18 @@ height: 30%;
     background-color: #00bfff;
 }
 
+@media (max-width: 991px) {
+    .az-project-section div {
+        margin: 0;
+        margin-top: 10%;
+        margin-left: 25%;
+    }
+}
+
 @media (max-width: 768px) {
+    .az-project-section div {
+        margin: 15%;
+    }
     .az-project-container:hover h2 {
         font-size: 5vw;
     }
@@ -302,21 +319,31 @@ height: 30%;
     display: inline-block;
     font-size: 50px;
     font-weight: 600;
-    height: 100%;
-    margin-top: 20%;
+    /*    height: 100%;*/
+    position: relative;
+    top: calc(50% - 50px);
 }
 
 #leftSign {
     float: left;
-    padding-left: 10%;
+    margin-left: 10%;
+}
+
+#leftSign:hover {
+    color: #00bfff;
 }
 
 #rightSign {
     float: right;
-    padding-right: 10%;
+    margin-right: 10%;
 }
 
-#mobile-app div {
+#rightSign:hover {
+    color: #00bfff;
+}
+
+#mobileProject {
+    display: inline-block;
     margin: 0;
     height: 100%;
     width: 70%;
@@ -324,10 +351,10 @@ height: 30%;
 
 #mobile-app p {
     display: inline-block;
-    margin-right: 20%;
     font-size: 20px;
     height: 40px;
-    width: 30%;
+    text-align: center;
+    width: 50%;
 }
 
 #image1 {
@@ -346,30 +373,70 @@ height: 30%;
     display: none;
 }
 
-#mobile-app img {
+#mobileImage {
     height: 80%;
     margin: 2% 2%;
+}
+
+#mobileProject.closed {
+    -webkit-animation: fadeOut 0.5s 0s 1 ease-in-out;
+    -moz-animation: fadeOut 0.5s 0s 1 ease-in-out;
+    -ms-animation: fadeOut 0.5s 0s 1 ease-in-out;
+    -o-animation: fadeOut 0.5s 0s 1 ease-in-out;
+    animation: fadeOut 0.5s 0s 1 ease-in-out;
+}
+
+#mobileProject.open {
+    -webkit-animation: fadeIn 0.5s 0s 1 ease-in-out;
+    -moz-animation: fadeIn 0.5s 0s 1 ease-in-out;
+    -ms-animation: fadeIn 0.5s 0s 1 ease-in-out;
+    -o-animation: fadeIn 0.5s 0s 1 ease-in-out;
+    animation: fadeIn 0.5s 0s 1 ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 768px) {
     #mobile-app > i {
         font-size: 30px;
-        margin-top: 50%;
-        width: 5%;
+        width: 4%;
     }
     #leftSign {
-        float: left;
-        padding-left: 5%;
+        margin-left: 3%;
     }
-    #mobile-app div p {
+    #rightSign {
+        margin-right: 3%;
+    }
+    #mobileProject p {
         display: block;
-        width: 80%;
+        width: 100%;
     }
-    #mobile-app div {
+    #mobileProject {
         padding-top: 5%;
         width: 60%;
     }
-    #mobile-app img {
+    #mobileImage {
         height: 75%;
     }
+}
+
+#mobileDescription {
+    padding: 0;
+    margin: 0;
 }
