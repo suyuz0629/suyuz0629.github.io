@@ -3,30 +3,35 @@
     overflow: hidden;
 }
 
-.md-perspective,
-.md-perspective body {
+.stop-point {
+    pointer-events: none;
+}
+
+.az-md-perspective,
+.az-md-perspective body {
     height: 100%;
     overflow: hidden;
 }
 
-.md-perspective body {
+.az-md-perspective body {
     background: #222;
     -webkit-perspective: 600px;
     -moz-perspective: 600px;
     perspective: 600px;
 }
 
-.container {
+.az-md-container {
     background: #5a5a5a;
     min-height: 100%;
 }
 
-.md-modal {
+.az-md-modal {
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    margin-left: 25%;
+    height: 80%;
     z-index: 2000;
     visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -34,11 +39,11 @@
     backface-visibility: hidden;
 }
 
-.md-show {
+.az-md-show {
     visibility: visible;
 }
 
-.md-overlay {
+.az-md-overlay {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -53,15 +58,12 @@
     transition: all 0.3s;
 }
 
-.md-show ~ .md-overlay {
+.az-md-show ~ .az-md-overlay {
     opacity: 1;
     visibility: visible;
 }
 
-
-/* Content styles */
-
-.md-content {
+.az-md-content {
     overflow: hidden;
     color: #fff;
     background: #5a5a5a;
@@ -69,9 +71,11 @@
     position: relative;
     border-radius: 3px;
     margin: 0 auto;
+    pointer-events: none;
 }
 
-.md-content > p {
+.az-md-content > p {
+    color: #ffd700;
     margin: 0;
     padding: 0.4em;
     text-align: center;
@@ -82,54 +86,53 @@
     border-radius: 3px 3px 0 0;
 }
 
-.md-content > div {
+.az-md-content > div {
     padding: 15px 40px 30px;
     margin: 0;
     font-weight: 300;
     font-size: 1.15em;
 }
 
-.md-content > div p {
+.az-md-content > div p {
     margin: 0;
     padding: 10px 0;
+    color: aquamarine;
 }
 
-.md-content > div ul {
+.az-md-content > div ul {
     margin: 0;
     padding: 0 0 30px 20px;
 }
 
-.md-content > div ul li {
+.az-md-content > div ul li {
     padding: 5px 0;
 }
 
-.md-content button {
+.az-md-content button {
     background-color: transparent;
     display: inline-block;
     font-size: 30px;
     float: right;
+    pointer-events: all !important;
 }
 
-.md-content button i {
+.az-md-content button i {
     vertical-align: middle;
 }
 
-.md-close {
+.az-md-close {
     background-color: black;
     color: white;
     border: 0;
 }
 
-
-/* Effect 10: 3D sign */
-
-.md-effect-10.md-modal {
+.az-md-modal {
     -webkit-perspective: 1300px;
     -moz-perspective: 1300px;
     perspective: 1300px;
 }
 
-.md-effect-10 .md-content {
+.az-md-content {
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -146,10 +149,17 @@
     transition: all 0.3s;
 }
 
-.md-show.md-effect-10 .md-content {
+.az-md-show .az-md-content {
     -webkit-transform: rotateX(0deg);
     -moz-transform: rotateX(0deg);
     -ms-transform: rotateX(0deg);
     transform: rotateX(0deg);
     opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    .az-md-modal {
+        width: 100%;
+        margin-left: 0;
+    }
 }

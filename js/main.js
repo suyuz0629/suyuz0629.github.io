@@ -60,32 +60,33 @@
         var overlay = document.querySelector('.md-overlay');
         var body = document.querySelector('body');
         var mobileBody = document.getElementsByTagName('body');
-		[].slice.call(document.querySelectorAll('.md-trigger')).forEach(function (el, i) {
+		[].slice.call(document.querySelectorAll('.az-md-trigger')).forEach(function (el, i) {
 
             var modal = document.querySelector('#' + el.getAttribute('data-modal'));
-            var close = modal.querySelector('.md-close');
+            var close = modal.querySelector('.az-md-close');
 
             function removeModal(hasPerspective) {
-                classie.remove(modal, 'md-show');
+                classie.remove(modal, 'az-md-show');
 
                 if (hasPerspective) {
-                    classie.remove(document.documentElement, 'md-perspective');
+                    classie.remove(document.documentElement, 'az-md-perspective');
                 }
             }
 
             function removeModalHandler() {
-                removeModal(classie.has(el, 'md-setperspective'));
+                removeModal(classie.has(el, 'az-md-setperspective'));
             }
 
             el.addEventListener('click', function (ev) {
-                classie.add(modal, 'md-show');
+                classie.add(modal, 'az-md-show');
                 classie.add(body, 'stop-scrolling');
+                classie.add(body, 'stop-point');
                 overlay.removeEventListener('click', removeModalHandler);
                 overlay.addEventListener('click', removeModalHandler);
 
-                if (classie.has(el, 'md-setperspective')) {
+                if (classie.has(el, 'az-md-setperspective')) {
                     setTimeout(function () {
-                        classie.add(document.documentElement, 'md-perspective');
+                        classie.add(document.documentElement, 'az-md-perspective');
                     }, 25);
                 }
             });
@@ -94,6 +95,7 @@
                 ev.stopPropagation();
                 removeModalHandler();
                 classie.remove(body, 'stop-scrolling');
+                classie.remove(body, 'stop-point');
             });
 
         });
@@ -105,169 +107,36 @@
     var pros = document.getElementById('az-tabs-section');
 
     var awstab = document.getElementById('aws-tab');
-    var setab = document.getElementById('search-engine-tab');
     var matab = document.getElementById('mobile-app-tab');
-    var watab = document.getElementById('web-app-tab');
 
     var aws = document.getElementById('aws');
-    var se = document.getElementById('search-engine');
     var ma = document.getElementById('mobile-app');
-    var wa = document.getElementById('web-app');
 
-    function showAndHideothers(aws, se, ma, wa) {
+    function showAndHideothers(aws, ma) {
         aws.style.display = "block";
-        se.style.display = "none";
         ma.style.display = "none";
-        wa.style.display = "none";
     }
 
-    function setTabColor(awstab, setab, matab, watab) {
-        awstab.style.color = "#00bfff";
-        awstab.style.backgroundColor = "white";
-        awstab.style.borderRadius = "5px";
+    function setTabColor(awstab, matab, color) {
+        awstab.style.color = "#ffd700";
+        awstab.style.backgroundColor = color;
+        awstab.style.borderTopLeftRadius = "7px";
+        awstab.style.borderTopRightRadius = "7px";
         awstab.style.opacity = 1;
-        setab.style.color = "black";
-        setab.style.backgroundColor = "";
-        setab.style.opacity = 1;
         matab.style.color = "black";
         matab.style.backgroundColor = "";
         matab.style.opacity = 1;
-        watab.style.color = "black";
-        watab.style.backgroundColor = "";
-        watab.style.opacity = 1;
     }
-    showAndHideothers(aws, se, ma, wa);
-    setTabColor(awstab, setab, matab, watab);
+    showAndHideothers(aws, ma);
+    setTabColor(awstab, matab, "#1c9b94");
     awstab.addEventListener('click', function () {
-        showAndHideothers(aws, se, ma, wa);
-        setTabColor(awstab, setab, matab, watab);
-    });
-    setab.addEventListener('click', function () {
-        showAndHideothers(se, aws, ma, wa);
-        setTabColor(setab, awstab, matab, watab);
+        showAndHideothers(aws, ma);
+        setTabColor(awstab, matab, "#1c9b94");
     });
     matab.addEventListener('click', function () {
-        showAndHideothers(ma, se, aws, wa);
-        setTabColor(matab, awstab, setab, watab);
+        showAndHideothers(ma, aws);
+        setTabColor(matab, awstab, "#ffb6ae");
     });
-    watab.addEventListener('click', function () {
-        showAndHideothers(wa, se, ma, aws);
-        setTabColor(watab, awstab, setab, matab);
-    });
-
-    function setHeight(id, height) {
-        document.getElementById(id).style.height = height + "px";
-    }
-
-    window.addEventListener('resize', function () {
-        initHeight();
-    })
-    initHeight();
-
-    function initHeight() {
-        setHeight("az-myself", innerHeight + 60);
-        if (window.innerWidth <= 992) {
-            console.log(findPos(document.getElementById('facebookPro')));
-            setHeight("aws", document.getElementById('facebookPro').getBoundingClientRect().height * 4);
-        } else {
-            setHeight("aws", innerHeight - 60);
-        }
-        setHeight("search-engine", innerHeight - 60);
-        setHeight("mobile-app", innerHeight - 60);
-        setHeight("web-app", innerHeight - 60);
-    }
-
-    window.addEventListener('mousewheel', function (e) {
-        var direction = e.wheelDelta < 0 ? 'down' : 'up';
-        var topPos = 0;
-        var myselPos = findPos(myself);
-        var proPos = findPos(pros);
-        var cur = document.body.scrollTop;
-        if (e.wheelDelta < 0) {
-            if (cur < myselPos) {
-                disableScroll();
-                e.preventDefault();
-                pageScroll(5, myselPos);
-                setTimeout(function () {
-                    enableScroll();
-                }, 1500);
-            } else if (cur < proPos) {
-                disableScroll();
-                e.preventDefault();
-                pageScroll(5, proPos);
-                setTimeout(function () {
-                    enableScroll();
-                }, 1500);
-            }
-        } else if (e.wheelDelta > 0) {
-            if (window.innerWidth <= 992) {
-                if (cur > proPos) {
-                    if (cur < proPos + 5) {
-                        disableScroll();
-                        e.preventDefault();
-                        pageScroll(-5, proPos);
-                        setTimeout(function () {
-                            enableScroll();
-                        }, 1500);
-                    }
-                } else if (cur > myselPos) {
-                    disableScroll();
-                    e.preventDefault();
-                    pageScroll(-5, myselPos);
-                    setTimeout(function () {
-                        enableScroll();
-                    }, 1500);
-                } else if (cur > 0) {
-                    disableScroll();
-                    e.preventDefault();
-                    pageScroll(-5, 0);
-                    setTimeout(function () {
-                        enableScroll();
-                    }, 1500);
-                }
-            } else {
-                if (cur > myselPos) {
-                    disableScroll();
-                    e.preventDefault();
-                    pageScroll(-5, myselPos);
-                    setTimeout(function () {
-                        enableScroll();
-                    }, 1500);
-                } else if (cur > 0) {
-                    disableScroll();
-                    e.preventDefault();
-                    pageScroll(-5, 0);
-                    setTimeout(function () {
-                        enableScroll();
-                    }, 1500);
-                }
-            }
-
-        }
-        //        }
-    });
-
-    function pageScroll(step, targetPos) {
-        window.scrollBy(0, step);
-        if (step > 0) {
-            if (document.body.scrollTop < targetPos - 20) {
-                setTimeout(function () {
-                    pageScroll(step, targetPos)
-                }, 1);
-            } else {
-                window.scrollTo(0, targetPos);
-            }
-        } else {
-            if (document.body.scrollTop > targetPos + 20) {
-                setTimeout(function () {
-                    pageScroll(step, targetPos)
-                }, 1);
-            } else {
-                window.scrollTo(0, targetPos);
-            }
-        }
-
-    }
 
     var currentImageInMobile = 0;
     var mobileDescription = {
@@ -295,24 +164,10 @@
     }
 
     function changeImage() {
-        var mobileProject = document.getElementById('mobileProject');
-        var image = document.getElementById('mobileImage');
-        var description = document.getElementById('mobileDescription')
-        setTimeout(function () {
-            mobileProject.className = "closed";
-            setTimeout(function () {
-                mobileProject.style.opacity = 0;
-                image.src = 'img/mobile/image' + (currentImageInMobile + 1) + '.png';
-                description.innerHTML = mobileDescription[currentImageInMobile + 1];
-                setTimeout(function () {
-                    mobileProject.className = "open";
-                    setTimeout(function () {
-                        mobileProject.style.opacity = 1.0;
-                    }, 10);
-                }, 500);
-            }, 500);
-        }, 10);
-
+        var image = document.getElementById('mobile-image');
+        var description = document.getElementById('mobile-description')
+        image.src = 'img/mobile/image' + (currentImageInMobile + 1) + '.png';
+        description.innerHTML = mobileDescription[currentImageInMobile + 1];
     }
 
     init();

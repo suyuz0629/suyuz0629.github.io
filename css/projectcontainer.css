@@ -1,14 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
 .az-project-description {
     display: block;
     padding: 2em;
@@ -46,9 +35,10 @@
     padding-bottom: 2.5%;
     text-align: center;
     width: 100%;
+    min-height: 620px;
 }
 
-.az-project-section div {
+#aws div {
     padding: 0;
     margin: 4.16%;
 }
@@ -135,16 +125,7 @@
     font-size: 3vw;
     left: 20%;
     top: 70%;
-    /*
-    width: 30%;
-height: 30%;
-*/
     position: absolute;
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -ms-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    transition-duration: 0.5s;
 }
 
 .az-project-container:hover figcaption > i:hover:before {
@@ -254,11 +235,11 @@ height: 30%;
     display: block;
     opacity: 1.0;
     color: #00bfff;
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -ms-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .az-project-container h2 span {
@@ -284,7 +265,7 @@ height: 30%;
 }
 
 #search-engine {
-    background-color: #5a5a5a;
+    background-color: #808080;
 }
 
 #mobile-app {
@@ -292,41 +273,98 @@ height: 30%;
 }
 
 #web-app {
-    background-color: #00bfff;
+    background-color: #00d4ff;
 }
 
-@media (max-width: 991px) {
-    .az-project-section div {
-        margin: 0;
-        margin-top: 10%;
-        margin-left: 25%;
-    }
+#search-engine h3 {
+    margin-bottom: 10%;
 }
 
-@media (max-width: 768px) {
-    .az-project-section div {
-        margin: 15%;
-    }
-    .az-project-container:hover h2 {
-        font-size: 5vw;
-    }
-    .az-project-container:hover figcaption > i {
-        font-size: 10vw;
-    }
+#search-engine div {
+    margin-bottom: 20%;
+}
+
+#search-engine > div > h4 {
+    text-align: left;
+}
+
+#pa {
+    border-radius: 8px;
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
 }
 
 #mobile-app > i {
     display: inline-block;
     font-size: 50px;
     font-weight: 600;
-    /*    height: 100%;*/
     position: relative;
     top: calc(50% - 50px);
 }
 
+.az-feature-row {
+    max-width: 900px;
+    min-height: 260px;
+    max-height: 350px;
+    background: no-repeat 18% 5px;
+    background-size: 220px 220px;
+    display: block;
+    margin: 70px auto;
+}
+
+.az-feature-row h3 {
+    padding-right: 35px;
+    padding-left: 55%;
+    padding-bottom: 5%;
+}
+
+.az-feature-row p {
+    color: #858f9f;
+    font-weight: 300;
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    padding-right: 35px;
+    padding-left: 55%;
+    line-height: 26px;
+    text-align: left;
+}
+
+.az-mobile-right-image h3 {
+    padding-right: 56%;
+    padding-left: 30px;
+}
+
+.az-mobile-right-image p {
+    padding-right: 56%;
+    padding-left: 30px;
+    line-height: 26px;
+}
+
+.az-mobile-right-image {
+    background-position: 77% 5px;
+}
+
+.az-mobile-ionic {
+    background-image: url("../img/ionic_logo.png");
+}
+
+.az-mobile-angular {
+    background-image: url("../img/angularjs-logo.png");
+}
+
+.az-mobile-googlemap {
+    background-image: url("../img/googlemap-logo.png");
+}
+
+#mobile-project > div > img {
+    width: 300px;
+}
+
 #leftSign {
     float: left;
-    margin-left: 10%;
+    font-size: 40px;
+    margin-top: 10%;
 }
 
 #leftSign:hover {
@@ -335,26 +373,32 @@ height: 30%;
 
 #rightSign {
     float: right;
-    margin-right: 10%;
+    font-size: 40px;
+    margin-top: 10%;
 }
 
 #rightSign:hover {
     color: #00bfff;
 }
 
-#mobileProject {
-    display: inline-block;
-    margin: 0;
-    height: 100%;
-    width: 70%;
+#mobile-project {
+    text-align: center;
+    width: 100%;
+    height: 650px;
+    display: block;
+    border-bottom: thick groove #ffd700;
 }
 
-#mobile-app p {
-    display: inline-block;
-    font-size: 20px;
-    height: 40px;
+#mobile-project i {
+    position: relative;
+}
+
+#mobile-project > div > p {
     text-align: center;
-    width: 50%;
+    display: block;
+    padding-top: 10%;
+    width: 100%;
+    font-size: 20px;
 }
 
 #image1 {
@@ -378,7 +422,7 @@ height: 30%;
     margin: 2% 2%;
 }
 
-#mobileProject.closed {
+#mobile-project.closed {
     -webkit-animation: fadeOut 0.5s 0s 1 ease-in-out;
     -moz-animation: fadeOut 0.5s 0s 1 ease-in-out;
     -ms-animation: fadeOut 0.5s 0s 1 ease-in-out;
@@ -386,7 +430,7 @@ height: 30%;
     animation: fadeOut 0.5s 0s 1 ease-in-out;
 }
 
-#mobileProject.open {
+#mobile-project.open {
     -webkit-animation: fadeIn 0.5s 0s 1 ease-in-out;
     -moz-animation: fadeIn 0.5s 0s 1 ease-in-out;
     -ms-animation: fadeIn 0.5s 0s 1 ease-in-out;
@@ -412,31 +456,91 @@ height: 30%;
     }
 }
 
-@media (max-width: 768px) {
+#mobileDescription {
+    padding: 0;
+    margin: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    #aws div {
+        margin: 0;
+        margin-top: 10%;
+        margin-left: 25%;
+    }
+    #aws:hover h2 {
+        font-size: 30px;
+    }
+    #aws:hover figcaption > i {
+        font-size: 50px;
+    }
+    #search-engine div {
+        margin-left: 0;
+    }
+    .az-feature-row {
+        background-size: 140px 140px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #aws div {
+        margin: 15%;
+    }
+    #aws:hover h2 {
+        font-size: 20px;
+    }
+    #aws:hover figcaption > i {
+        font-size: 40px;
+    }
+    .az-feature-row {
+        margin: auto 10px;
+        min-height: 150px;
+        max-width: 900px;
+        background: no-repeat 0 32px;
+        background-size: 100px 100px;
+    }
+    .az-mobile-ionic {
+        background-image: url("../img/ionic_logo.png");
+    }
+    .az-mobile-angular {
+        background-image: url("../img/angularjs-logo.png");
+    }
+    .az-mobile-googlemap {
+        background-image: url("../img/googlemap-logo.png");
+    }
+    .az-feature-row h3 {
+        font-size: 20px;
+        padding: 0;
+        text-align: left;
+    }
+    .az-feature-row p {
+        color: #858f9f;
+        font-weight: 300;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0 0 0 120px;
+        text-align: left;
+    }
+    #mobile-project {
+        height: 700px;
+    }
+    #mobile-app h4 {
+        font-size: 15px;
+    }
     #mobile-app > i {
         font-size: 30px;
         width: 4%;
     }
-    #leftSign {
-        margin-left: 3%;
+    #mobile-app > div > p {
+        padding-top: 0;
     }
-    #rightSign {
-        margin-right: 3%;
-    }
-    #mobileProject p {
-        display: block;
-        width: 100%;
-    }
-    #mobileProject {
-        padding-top: 5%;
-        width: 60%;
-    }
-    #mobileImage {
-        height: 75%;
+    #mobile-project > div > img {
+        max-height: 80%;
+        max-width: 90%;
     }
 }
 
-#mobileDescription {
-    padding: 0;
-    margin: 0;
+@media only screen and (max-width: 480px) {
+    #mobile-project {
+        height: 600px;
+    }
 }

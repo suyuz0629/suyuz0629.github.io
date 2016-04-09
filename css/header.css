@@ -1,15 +1,3 @@
-/* Header styles and animations */
-
-.az-large-header {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-image: url('../img/bg.png');
-}
-
 .az-header {
     z-index: 10;
     display: block;
@@ -17,7 +5,6 @@
     width: 100%;
     height: 60px;
     padding: 0;
-    font-family: 'Lato', Arial, sans-serif;
     -webkit-transform: translateY(0%);
     -moz-transform: translateY(0%);
     transform: translateY(0%);
@@ -69,36 +56,4 @@
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
-}
-
-@media screen and (max-width: 65em) {
-    body {
-        font-size: 85%;
-    }
-}
-
-@media screen and (max-width: 60em) {
-    .az-header-perspective > div,
-    .az-header {
-        text-align: center;
-    }
-    .az-header h1 {
-        padding: 10px 0;
-        height: 60%;
-    }
-    .az-header {
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 38em) {
-    section {
-        font-size: 1.3em;
-    }
-    .az-header h1 {
-        font-size: 2em;
-    }
-    .az-header {
-        font-size: 60%;
-    }
 }

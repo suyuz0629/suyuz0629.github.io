@@ -1,10 +1,70 @@
-.large-header {
+.az-large-header {
+    /*
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    z-index: 1;
     background-image: url('../img/bg.png');
+*/
+    width: 100%;
+    height: 700px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: black;
+    background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+.az-large-header span {
+    color: bisque;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    padding-top: 300px;
+    pointer-events: none;
+}
+
+.az-large-header P {
+    color: aquamarine;
+    font-size: 30px;
+    font-weight: 100;
+    pointer-events: none;
+}
+
+.github {
+    color: #8c53c6;
+}
+
+.linkedin {
+    color: #1d87bd;
+}
+
+.github,
+.linkedin {
+    font-size: 40px !important;
+    pointer-events: all;
+}
+
+.github:hover,
+.linkedin:hover {
+    color: #ffd700 !important;
+    text-decoration: none !important;
+}
+
+@media only screen and (max-width: 992px) {
+    .az-large-header span {
+        font-size: 50px;
+    }
+    .az-large-header P {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .az-large-header span {
+        font-size: 40px;
+    }
 }

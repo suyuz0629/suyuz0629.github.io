@@ -6,7 +6,7 @@
     ];
     // Main
     initHeader();
-    addListeners();
+    //    addListeners();
 
     function initHeader() {
         width = window.innerWidth;
@@ -19,16 +19,16 @@
         largeHeader = document.getElementById('large-header');
         largeHeader.style.height = height + 'px';
 
-        canvas = document.getElementById('header-canvas');
-        canvas.width = width;
-        canvas.height = height;
-        ctx = canvas.getContext('2d');
-
-        img = new Image();
-        img.src = "img/letter.png";
-        stars = [];
-        canvasInit();
-        animate();
+        //        canvas = document.getElementById('header-canvas');
+        //        canvas.width = width;
+        //        canvas.height = height;
+        //        ctx = canvas.getContext('2d');
+        //
+        //        img = new Image();
+        //        img.src = "img/letter.png";
+        //        stars = [];
+        //        canvasInit();
+        //        animate();
     }
 
     function getMousePos(canvas, evt) {
